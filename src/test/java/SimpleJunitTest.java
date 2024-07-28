@@ -1,9 +1,4 @@
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.*;
+import org.junit.jupiter.api.*;
 
 //В JUnit есть возможность выполнять какой то общий код перед каждым тестом при помощи аннотации @BeforeEach
 
@@ -12,11 +7,22 @@ public class SimpleJunitTest {
 
     int result;
 
+    @BeforeAll //эта аннотация выполняет НАСТРОЙКИ которые в ней заданы ПЕРЕД каждым тестом, например настройка определенного размера браузера
+    static void beforeAll() { //перед BeforeAll ВСЕГДА пишется static
+        System.out.println("###   beforeAll");
 
-    @BeforeEach //эта аннотация выполняет условие которое в ней задано перед каждым тестом
+    }
+
+    @BeforeEach //эта аннотация выполняет условие которое в ней задано ПЕРЕД каждым тестом
     void beforeEach() {
         System.out.println("###   beforeEach");
         result = getResult();
+    }
+
+    @AfterEach //та аннотация выполняет условие которые в ней задано ПОСЛЕ каждого теста
+    void afterEach() {
+    System.out.println("###   afterEach");
+    result = 0;
     }
 
     @Test
