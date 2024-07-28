@@ -46,7 +46,6 @@ public class SimpleJunitTest {
     private int getResult() { //создаем метод который будет возвращать нам это условие
         return 3;
     }
-
-
-
 }
+
+//это минимальный ЖЦ автотеста
