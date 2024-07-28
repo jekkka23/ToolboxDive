@@ -7,9 +7,9 @@ public class SimpleJunitTest {
 
     int result;
 
-    @BeforeAll //эта аннотация выполняет НАСТРОЙКИ которые в ней заданы ПЕРЕД каждым тестом, например настройка определенного размера браузера
+    @BeforeAll //эта аннотация выполняет НАСТРОЙКИ которые в ней заданы ПЕРЕД ВСЕМИ тестами один раз, например настройка определенного размера браузера
     static void beforeAll() { //перед BeforeAll ВСЕГДА пишется static
-        System.out.println("###   beforeAll");
+        System.out.println("\n###   beforeAll\n");
 
     }
 
@@ -23,6 +23,11 @@ public class SimpleJunitTest {
     void afterEach() {
     System.out.println("###   afterEach");
     result = 0;
+    }
+    
+    @AfterAll //эта аннотация выполняет НАСТРОЙКИ которые в ней заданы ПОСЛЕ ВСЕХ тестов  один раз, например очистка куки
+    static void afterAll() { //перед afterAll ВСЕГДА пишется static
+        System.out.println("###   afterAll\n");
     }
 
     @Test
