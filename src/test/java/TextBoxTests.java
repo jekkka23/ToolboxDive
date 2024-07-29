@@ -2,6 +2,7 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
 
 
@@ -18,13 +19,18 @@ public class TextBoxTests {
     @Test
     void fillFormTest() {
 
-        open("/text-box");
+        open("/text-box"); //это так называемый относительный адрес
 
         $("[id=userName]").setValue("Evgeny"); //css с id можно писать полностью [id=userName]
         $("[id=userEmail]").setValue("jekkka23@mail.ru");
         $("#currentAddress").setValue("Russia"); //а можно убрать [] и сократить поставив #
         $("#permanentAddress").setValue("Russia");
         $("#submit").click();
+        //прописываем проверки
+        $("#output").$("#name").shouldHave(text("Evgeny"));
+        $("#output").$("#email").shouldHave(text("jekkka23@mail.ru"));
+        $("#output").$("#currentAddress").shouldHave(text("Russia")); //проверяя currentAddress у нас их два, по этому мы сначала указали родительский элемент, а затем дочерний под ним
+        $("#output").$("#permanentAddress").shouldHave(text("Russia")); //но можно без родительского элемента, а после permanentAddress указать порядковый номер 1 через запятую
 
 
     }

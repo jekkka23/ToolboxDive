@@ -20,3 +20,7 @@ test {
     useJUnitPlatform()
 }
 // относится к JUnit, добавление кнопки play слева от @Test
+dependencies {
+    // другие зависимости
+    implementation 'ch.qos.logback:logback-classic:1.2.11'
+}
