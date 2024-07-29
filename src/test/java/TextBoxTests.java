@@ -36,6 +36,9 @@ public class TextBoxTests {
         $("#output").$("#currentAddress").shouldHave(text("Russia")); //проверяя currentAddress у нас их два, по этому мы сначала указали родительский элемент, а затем дочерний под ним
         //$("#currentAddress" 1).shouldHave(text("Russia")); запись эта и выше идентичны
         $("#output").$("#permanentAddress").shouldHave(text("Russia")); //но можно без родительского элемента, а после permanentAddress указать порядковый номер 1 через запятую
+        //$("#permanentAddress", 1).shouldHave(text("Russia")); как тут например, то же самое что и выше только другим способом
+
+
 
 
     }
