@@ -23,7 +23,8 @@ public class PracticeFormPageObjectTests {
 
     void successfulRegistrationTest() {
         open("/automation-practice-form");
-        pageObjectWithPracticeForm.successfulTest();
+        //executeJavaScript(jsCode: "$('#fixedban').remove()"); - удаление элементов со страницы, например баннера, нужен для подготовки страницы к дальнейшему тестированию или анализу.
+        pageObjectWithPracticeForm.playTest();
 
 
 

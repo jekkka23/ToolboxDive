@@ -84,7 +84,10 @@ public class PageObjectWithPracticeForm {
           assertExampleModalSizeInput.shouldHave(text("Thanks for submitting the form"));
           assertTableResponsiveInput.shouldHave(text("Evgeny"), text("Mihailov"), text("jekkka23@mail.ru"), text("1111111111"));
      }
-     public void successfulTest() {
+
+
+
+     public void playTest() {
           setFirstName();
           setLastName();
           setEmail();
@@ -98,9 +101,6 @@ public class PageObjectWithPracticeForm {
           setStateAndCity();
           setSubmit();
           setAssertSuccess();
-
-
-
 
      }
 
