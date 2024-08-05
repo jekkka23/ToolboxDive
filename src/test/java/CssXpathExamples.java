@@ -1,6 +1,9 @@
+import com.codeborne.selenide.Condition;
+
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
+import static org.openqa.selenium.By.linkText;
 
 public class CssXpathExamples {
 
@@ -55,10 +58,24 @@ public class CssXpathExamples {
         $(byText("Hello, qa.guru!")); //поиск элемента по тексту (по всему)
         $(withText("Ho, qa.gu!")); //поиск элемента по тексту (по куску текста)
 
+        //КЛИК ПО ТЕКСТУ ИЛИ ССЫЛКЕ
 
+        $(byText("Hello, qa.guru!")).click(); //поиск элемента по тексту (по всему)
+        $(withText("Ho, qa.gu!")).click(); //поиск и клик по части текста
+        $(linkText("Ho, qa.gu!")).click(); //клик по ссылке
 
+        //ПРОВЕРКИ
 
+        $(withText("#80")).should(Condition.exist); //проверка что текст #80 есть на странице/проверяет, что такой элемент существует на странице.
 
+        //ВВОД ТЕКСТА В ПОИСКОВУЮ СТРОКУ
+
+        $(".header-search-button").click();
+        $("#query-builder-test").setValue("eroshenkoam/allure-example").pressEnter(); //можно так
+
+        $(".header-search-button").click();
+        $(".header-search-button").sendKeys("eroshenkoam/allure-example");
+        $(".header-search-button").submit(); //а можно так
 
 
 
